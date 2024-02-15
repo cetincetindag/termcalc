@@ -6,5 +6,5 @@ os.system(cmd)
 
 def main():
    initmodule.init_sequence()
-   
+
 main()
