@@ -2,7 +2,11 @@ import time
 import initmodule
 import sys
 import random
+import os
+import math
+import cmath
 
+# Global variables
 commands = ['s', 'c', 'exit']
 operators = ['+', '-', '*', '/']
 user_input = ''
@@ -16,7 +20,9 @@ exit_msg = ["Thanks for using TermCalc :) Hope to see you again soon !",
             "Goodbye! Come back soon? Thank you for using TermCalc! :3",
             "Bye-bye! Everything will be smoother when you come back :3."]
 
+# Functions
 
+# Function to clear the memory
 def memclear():
     global user_input   
     global sliced_string    
@@ -32,12 +38,13 @@ def memclear():
     print("Memory cleared !!")
     print("=============")
 
-
+# Function to get the state of the program
 def get_state():
     global next_state
 
     next_state = input("input: ")
 
+# Function to store the result in a variable    
 def store_result(var):
     global previous_result
 
@@ -51,6 +58,7 @@ def store_result(var):
         print("Invalid variable name. Please use a valid identifier.")
         get_state()
 
+# Function to tokenize the input from the user
 def get_input():
     global user_input
     global sliced_string 
@@ -61,7 +69,7 @@ def get_input():
     elif user_input == 'exit':
         exit_func()
 
-
+# Function to seperate the numbers and operators
 def seperate_nums():
     global sliced_string
     global processed_array
@@ -80,6 +88,7 @@ def seperate_nums():
 
     sliced_string = []     
 
+# Function to perform the calculation 
 def perform_calc():
     global processed_array
     global previous_result
@@ -124,11 +133,13 @@ def perform_calc():
     print("-Type c to clear everything and start a new calculation.")
     get_state()
 
+# Function to exit the program
 def exit_func():
     time.sleep(0.2)
     print(u"\u001b[32m +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n")
     sys.exit(exit_msg[random.randint(0,(len(exit_msg)-1))])
 
+# Function to select the state of the program
 def select_state():
     global commands
     global next_state
@@ -146,11 +157,4 @@ def select_state():
                 get_state()
         elif next_state == 'exit':
                 exit_func()
-
-
-
-
-
-
-
 
